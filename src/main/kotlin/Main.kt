@@ -40,4 +40,33 @@ fun main() {
     println("Costo Base: $costoBase")
     println("Total Con Iva: $totalConIva")
 
+    val tipoUsuario = "Socio"
+
+    fun describirTipoUsuario (tipoUsuario: String ): String {
+        return when (tipoUsuario){
+            "infantil"->"Usuario infantil"
+            "socio" ->"Usuario socio"
+            "educacional"-> "Usuario educacional"
+            else -> "Tipo de usuario invalido"
+        }
+    }
+
+    fun aplicarBeneficioUsuario(
+        monto: Double,
+        tipoUsuario: String
+    ):Double {
+        return when (tipoUsuario){
+            "socio" -> monto * 0.80
+            "educacional" -> monto * 0.50
+            "infantil"-> monto
+            else -> monto
+        }
+    }
+
+    val monto = 1000.0
+
+    println(aplicarBeneficioUsuario(monto, "infantil"))
+    println(aplicarBeneficioUsuario(monto, "socio"))
+    println(aplicarBeneficioUsuario(monto, "educacional"))
+
 }
