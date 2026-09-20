@@ -3,14 +3,14 @@ package org.example
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
-    val nombreSistema : String = "GameZone"
-    val capacidad : Int = 10
+    val nombreSistema: String = "GameZone"
+    val capacidad: Int = 10
     var recaudacionTotal: Double = 800.0
 
     val codigoConsola: String = "CC12CD"
-    val marca: String  = "PlayStation"
-    val modelo : String ="PlayStation5"
-    val minutoUso : Int = 75
+    val marca: String = "PlayStation"
+    val modelo: String = "PlayStation5"
+    val minutoUso: Int = 75
     //val tarifaHora :Double = 800.0
 
     println("Sistema: $nombreSistema")
@@ -22,16 +22,16 @@ fun main() {
     fun calcularCostoBase(
         minutos: Int,
         tarifaHora: Double
-    ):Double{
+    ): Double {
         return (minutos / 60.0) * tarifaHora
     }
 
-    fun aplicarIva(monto:Double): Double {
+    fun aplicarIva(monto: Double): Double {
         return monto * 1.19
     }
 
-    val minutosUso : Int = 75
-    val tarifaHora : Double = 800.0
+    val minutosUso: Int = 75
+    val tarifaHora: Double = 800.0
 
     val costoBase = calcularCostoBase(minutosUso, tarifaHora)
 
@@ -42,11 +42,11 @@ fun main() {
 
     val tipoUsuario = "Socio"
 
-    fun describirTipoUsuario (tipoUsuario: String ): String {
-        return when (tipoUsuario){
-            "infantil"->"Usuario infantil"
-            "socio" ->"Usuario socio"
-            "educacional"-> "Usuario educacional"
+    fun describirTipoUsuario(tipoUsuario: String): String {
+        return when (tipoUsuario) {
+            "infantil" -> "Usuario infantil"
+            "socio" -> "Usuario socio"
+            "educacional" -> "Usuario educacional"
             else -> "Tipo de usuario invalido"
         }
     }
@@ -54,11 +54,11 @@ fun main() {
     fun aplicarBeneficioUsuario(
         monto: Double,
         tipoUsuario: String
-    ):Double {
-        return when (tipoUsuario){
+    ): Double {
+        return when (tipoUsuario) {
             "socio" -> monto * 0.80
             "educacional" -> monto * 0.50
-            "infantil"-> monto
+            "infantil" -> monto
             else -> monto
         }
     }
@@ -73,7 +73,7 @@ fun main() {
     val Consola = Consola(
         codigo = "CC12CD",
         marca = "Sony",
-        modelo= "PlayStation 5",
+        modelo = "PlayStation 5",
         tipoUsuario = "Socio"
     )
 
@@ -144,5 +144,55 @@ fun main() {
         "mantenimiento preventivo"
     )
 
+    val puestos: MutableList<Puesto> = mutableListOf()
 
+    for (numero in 1..10) {
+        puestos.add(Puesto(numero))
+    }
+
+    puestos.forEach { puesto ->
+        println(
+            "Puesto ${puesto.numero}: " +
+                    puesto.describirEstado(puesto)
+        )
+    }
+
+    val historial: MutableList<Consola> =
+        mutableListOf()
+
+    historial.add(
+        ConsolaClasica(
+            "CC12CD",
+            "Sony",
+            "PlayStation 5",
+            "socio"
+        )
+    )
+
+    historial.add(
+        ConsolaModerna(
+            "CM22TO",
+            "Nintendo",
+            "Switch",
+            "infantil"
+        )
+    )
+
+    for (consola in historial) {
+        println(
+            "${consola.codigo} - " +
+                    "${consola.marca} ${consola.modelo}"
+        )
+    }
+
+
+    var puestoLibre: Puesto? = null
+
+    for (puesto in puestos) {
+
+        if (puesto.estado is EstadoPuesto.Libre) {
+            puestoLibre = puesto
+            break
+        }
+    }
 }
