@@ -130,7 +130,19 @@ fun main() {
         )
     )
 
-    
+    val puesto = Puesto(1)
+
+    println(puesto.describirEstado(puesto))
+
+    puesto.estado = EstadoPuesto.EnProceso(
+        "registrando entrada"
+    )
+
+    println(puesto.describirEstado(puesto))
+
+    puesto.estado = EstadoPuesto.EnReparacion(
+        "mantenimiento preventivo"
+    )
 
 
 }
