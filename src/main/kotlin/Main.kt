@@ -69,4 +69,16 @@ fun main() {
     println(aplicarBeneficioUsuario(monto, "socio"))
     println(aplicarBeneficioUsuario(monto, "educacional"))
 
+
+    val Consola = Consola(
+        codigo = "CC12CD",
+        marca = "Sony",
+        modelo= "PlayStation 5",
+        tipoUsuario = "Socio"
+    )
+
+    println(Consola.codigo)
+    println(Consola.marca)
+    println(Consola.modelo)
+    println(Consola.tipoUsuario)
 }
