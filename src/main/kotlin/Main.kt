@@ -107,4 +107,30 @@ fun main() {
     println(vr.codigo)
     println(clasica.codigo)
     println(moderna.codigo)
+
+    val consolas: List<Consola> = listOf(
+        ConsolaClasica(
+            "CC12CD",
+            "Sony",
+            "PlayStation 5",
+            "socio"
+        ),
+        ConsolaModerna(
+            "CM22TO",
+            "Nintendo",
+            "Switch",
+            "infantil"
+        ),
+        ConsolaVR(
+            "VR44RG",
+            "Meta",
+            "Quest 3",
+            "educacional",
+            true
+        )
+    )
+
+    
+
+
 }

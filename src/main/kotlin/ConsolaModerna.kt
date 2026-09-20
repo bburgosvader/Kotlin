@@ -12,6 +12,14 @@ class ConsolaModerna(
     tipoUsuario
 ) {
     val tarifaBase : Double = 1500.0
+    override fun calcularTarifa(minutos: Int): Double {
+
+        if (minutos < 20) {
+            return 0.0
+        }
+
+        return (minutos / 60.0) * 1500.0
+    }
 
 }
 
